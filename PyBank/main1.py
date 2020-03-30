@@ -29,9 +29,9 @@ total_change = 0
 average_change = []
     
 #Append column in order to loop through values
-    for row in csvreader:
-    total_revenue.append((int(row[1])))
-    dates_list.append(row[0])
+        for row in csvreader:
+            total_revenue.append((int(row[1])))
+            dates_list.append(row[0])
 #Find Sum of the money
     for line in total_revenue: 
         total = sum(total_revenue)

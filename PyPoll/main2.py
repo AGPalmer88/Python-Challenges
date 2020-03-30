@@ -1,9 +1,12 @@
-#main.py
 import csv
 import os
 
+# Use the wresstling activity 8 for examples:
+# Path to collect data from the Resources folder
 election_data = os.path.join('.', "election_data.csv")
 
+
+#  # For readability, it can help to assign your values to variables with descriptive names
 # A list to capture the names of candidates
 candidate_options = []
 
@@ -15,7 +18,6 @@ percent_votes = []
 
 # A counter for the total number of votes
 total_votes = 0
-votes = 0
 
 # Set category for candidates
 with open (election_data, 'r') as csvfile:
@@ -26,18 +28,34 @@ with open (election_data, 'r') as csvfile:
     count2 = 0
     count3 = 0
     count4 = 0
+    voter = 0
+
+for row in csvreader:
+        candidates_all.append(row[2])
+with open(election_data,'r') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    header = next(csvreader)
     for row in csvreader:
-        votes = votes + 1
-        total_candidates = row["Candidate"]        
-        if row["Candidate"] not in candidate_options:
-            candidate_options.append(row["Candidate"])
-            candidate_votes[row["Candidate"]] = 1
-        else:
-            candidate_votes[row["Candidate"]] = candidate_votes[row["Candidate"]] + 1
+        candidate = (row[2])
+        count = count + (candidate.count("Khan"))
+        count2 = count2 + (candidate.count("Correy"))
+        count3 = count3 + (candidate.count("Li"))
+        count4 = count4 + (candidate.count("O'Tooley"))
+        
+# Set vote percentages for each candidate
+    Percent_Khan = (round((count/voter)*100))
+    Percent_Correy = (round((count2/voter)*100))
+    Percent_Li = (round((count3/voter)*100))
+    Percent_Tooley = (round((count4/voter)*100))
+    
+# Create lists of candiates and vote counts
+candidates = ["Khan", "Correy", "Li", "O'Tooley"]
+counts = [count, count2, count3, count4,]
 
 # Merge lists into tuples
 voter_count = zip(candidates, counts)
 winner = max(counts)
+
 # Find highest voter count
 with open(election_data, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
