@@ -29,7 +29,6 @@ print(total_months)
 with open(budget_data, 'r') as csvfile:
    csvreader = csv.reader(csvfile, delimiter=',')
    csv_header = next(csvreader)
-#average_change = (sum(total_revenue)/85)
 # Loop each row of data after the header for dates
    for row in csvreader:
         total_revenue.append((int(row[1])))
